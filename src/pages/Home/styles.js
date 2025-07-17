@@ -55,18 +55,19 @@ export const Info = styled.div`
 z-index: 2;
 padding: 20px;
 width: 50%;
+margin-top: 50px;
 
 h1 {
-    font-size: 5rem;
+    font-size: 4.2rem;
     font-weight: 700;
     color: #fff ;
 }
 
 p {
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 500;
     color: #fff;
-    margin-top: 30px;
+    margin-top: 20px;
     margin-bottom: 20px;
 }
 `
@@ -74,9 +75,13 @@ p {
 export const Poster = styled.div`
 
 z-index: 2;
+display: flex;
+justify-content: center;
 
 img {
-    width: 400px;
+    width: 100%;
+    max-width: 280px;
+    margin-top: 70px;
     border-radius: 30px;
     animation: ${scale} 0.5s linear;
 }

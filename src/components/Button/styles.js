@@ -8,7 +8,7 @@ color: #fff;
 border-radius: 30px;
 padding: 10px 20px;
 cursor: pointer;
-font-size: 20px;
+font-size: 15px;
 font-weight: 500;
 
 &:hover {

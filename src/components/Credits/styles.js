@@ -22,7 +22,7 @@ export const Container = styled.div`
   }
 
   img {
-    height: 200px;
+    height: 175px;
     border-radius: 20px;
   }
 `

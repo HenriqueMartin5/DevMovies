@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  min-height: 100px;
+  min-height: 90px;
   z-index: 99;
   position: fixed;
   top: 0;
@@ -13,7 +13,7 @@ export const Container = styled.div`
   transition: background-color 0.6s ease-in-out;
 
   img {
-    width: 25%;
+    width: 30%;
   }
 `;
 export const Menu = styled.ul`
@@ -24,7 +24,7 @@ export const Menu = styled.ul`
 export const Li = styled.li`
   font-weight: 600;
   cursor: pointer;
-  font-size: 28px;
+  font-size: 1.5rem;
   position: relative;
 
   a {

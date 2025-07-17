@@ -9,8 +9,7 @@ align-items: center;
 
 img{
     border-radius: 30px;
-    width: 300px;
-    height: 100%;
+    width: 250px;
 }
 
 h3{

@@ -15,6 +15,7 @@ export const Background = styled.div`
     height: 50vh;
     background-position: center;
     background-size: cover;
+    background-position-y: -15vh;
     background-repeat: no-repeat;
     position: relative;
 
@@ -46,6 +47,7 @@ export const Container = styled.div`
     height: 100%;
     max-width: 1500px;
     margin-top: -100px;
+    overflow-x: hidden;
 
 `
 
@@ -54,10 +56,10 @@ export const Cover = styled.div`
     display: flex;
     align-items: flex-start;
     height: 100%;
-    z-index: 99;
+    z-index: 90;
 
     img{
-        width: 450px;
+        max-width: 400px;
         border-radius: 30px;
         box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
         animation: ${scale} 0.5s linear;
@@ -68,13 +70,13 @@ export const Cover = styled.div`
 export const Info = styled.div`
     padding: 20px;
     width: 50%;
-    z-index: 99;
+    z-index: 90;
     display: flex;
     align-items: flex-start;
     flex-direction: column;
 
     h2 {
-        font-size: 50px;
+        font-size: 3rem;
         font-weight: 700;
         color: #ffffff;
     }

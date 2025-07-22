@@ -98,26 +98,31 @@ max-width: 1500px;
 z-index: 2;
 padding: 20px;
 width: 50%;
+margin-top: 50px;
 
 h1 {
-    font-size: 5rem;
+    font-size: 4.2rem;
     font-weight: 700;
     color: #fff ;
 }
 
 p {
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 500;
     color: #fff;
-    margin-top: 30px;
+    margin-top: 20px;
     margin-bottom: 20px;
 }
 `,$b=je.div`
 
 z-index: 2;
+display: flex;
+justify-content: center;
 
 img {
-    width: 400px;
+    width: 100%;
+    max-width: 280px;
+    margin-top: 70px;
     border-radius: 30px;
     animation: ${Qb} 0.5s linear;
 }
@@ -135,7 +140,7 @@ color: #fff;
 border-radius: 30px;
 padding: 10px 20px;
 cursor: pointer;
-font-size: 20px;
+font-size: 15px;
 font-weight: 500;
 
 &:hover {
@@ -166,8 +171,7 @@ align-items: center;
 
 img{
     border-radius: 30px;
-    width: 300px;
-    height: 100%;
+    width: 250px;
 }
 
 h3{
@@ -179,6 +183,7 @@ h3{
 
 background: #000;
 padding: 0 20px;
+overflow-x: hidden;
 
 h2{
     color: #fff;
@@ -219,7 +224,7 @@ iframe {
 `+c.map(ng).join(`
 `):" "+ng(c[0]):"as no adapter specified";throw new fe("There is no suitable adapter to dispatch the request "+d,"ERR_NOT_SUPPORT")}return s},adapters:$c};function Cc(n){if(n.cancelToken&&n.cancelToken.throwIfRequested(),n.signal&&n.signal.aborted)throw new Ra(null,n)}function lg(n){return Cc(n),n.headers=St.from(n.headers),n.data=Rc.call(n,n.transformRequest),["post","put","patch"].indexOf(n.method)!==-1&&n.headers.setContentType("application/x-www-form-urlencoded",!1),Dv.getAdapter(n.adapter||Xi.adapter)(n).then(function(s){return Cc(n),s.data=Rc.call(n,n.transformResponse,s),s.headers=St.from(s.headers),s},function(s){return Ov(s)||(Cc(n),s&&s.response&&(s.response.data=Rc.call(n,n.transformResponse,s.response),s.response.headers=St.from(s.response.headers))),Promise.reject(s)})}const Nv="1.9.0",ks={};["object","boolean","number","function","string","symbol"].forEach((n,a)=>{ks[n]=function(s){return typeof s===n||"a"+(a<1?"n ":" ")+n}});const ag={};ks.transitional=function(a,i,s){function o(c,d){return"[Axios v"+Nv+"] Transitional option '"+c+"'"+d+(s?". "+s:"")}return(c,d,m)=>{if(a===!1)throw new fe(o(d," has been removed"+(i?" in "+i:"")),fe.ERR_DEPRECATED);return i&&!ag[d]&&(ag[d]=!0,console.warn(o(d," has been deprecated since v"+i+" and will be removed in the near future"))),a?a(c,d,m):!0}};ks.spelling=function(a){return(i,s)=>(console.warn(`${s} is likely a misspelling of ${a}`),!0)};function ax(n,a,i){if(typeof n!="object")throw new fe("options must be an object",fe.ERR_BAD_OPTION_VALUE);const s=Object.keys(n);let o=s.length;for(;o-- >0;){const c=s[o],d=a[c];if(d){const m=n[c],h=m===void 0||d(m,c,n);if(h!==!0)throw new fe("option "+c+" must be "+h,fe.ERR_BAD_OPTION_VALUE);continue}if(i!==!0)throw new fe("Unknown option "+c,fe.ERR_BAD_OPTION)}}const Ss={assertOptions:ax,validators:ks},tn=Ss.validators;let Tl=class{constructor(a){this.defaults=a||{},this.interceptors={request:new Km,response:new Km}}async request(a,i){try{return await this._request(a,i)}catch(s){if(s instanceof Error){let o={};Error.captureStackTrace?Error.captureStackTrace(o):o=new Error;const c=o.stack?o.stack.replace(/^.+\n/,""):"";try{s.stack?c&&!String(s.stack).endsWith(c.replace(/^.+\n.+\n/,""))&&(s.stack+=`
 `+c):s.stack=c}catch{}}throw s}}_request(a,i){typeof a=="string"?(i=i||{},i.url=a):i=a||{},i=Al(this.defaults,i);const{transitional:s,paramsSerializer:o,headers:c}=i;s!==void 0&&Ss.assertOptions(s,{silentJSONParsing:tn.transitional(tn.boolean),forcedJSONParsing:tn.transitional(tn.boolean),clarifyTimeoutError:tn.transitional(tn.boolean)},!1),o!=null&&(G.isFunction(o)?i.paramsSerializer={serialize:o}:Ss.assertOptions(o,{encode:tn.function,serialize:tn.function},!0)),i.allowAbsoluteUrls!==void 0||(this.defaults.allowAbsoluteUrls!==void 0?i.allowAbsoluteUrls=this.defaults.allowAbsoluteUrls:i.allowAbsoluteUrls=!0),Ss.assertOptions(i,{baseUrl:tn.spelling("baseURL"),withXsrfToken:tn.spelling("withXSRFToken")},!0),i.method=(i.method||this.defaults.method||"get").toLowerCase();let d=c&&G.merge(c.common,c[i.method]);c&&G.forEach(["delete","get","head","post","put","patch","common"],E=>{delete c[E]}),i.headers=St.concat(d,c);const m=[];let h=!0;this.interceptors.request.forEach(function(R){typeof R.runWhen=="function"&&R.runWhen(i)===!1||(h=h&&R.synchronous,m.unshift(R.fulfilled,R.rejected))});const p=[];this.interceptors.response.forEach(function(R){p.push(R.fulfilled,R.rejected)});let v,S=0,b;if(!h){const E=[lg.bind(this),void 0];for(E.unshift.apply(E,m),E.push.apply(E,p),b=E.length,v=Promise.resolve(i);S<b;)v=v.then(E[S++],E[S++]);return v}b=m.length;let T=i;for(S=0;S<b;){const E=m[S++],R=m[S++];try{T=E(T)}catch(C){R.call(this,C);break}}try{v=lg.call(this,T)}catch(E){return Promise.reject(E)}for(S=0,b=p.length;S<b;)v=v.then(p[S++],p[S++]);return v}getUri(a){a=Al(this.defaults,a);const i=Cv(a.baseURL,a.url,a.allowAbsoluteUrls);return Tv(i,a.params,a.paramsSerializer)}};G.forEach(["delete","get","head","options"],function(a){Tl.prototype[a]=function(i,s){return this.request(Al(s||{},{method:a,url:i,data:(s||{}).data}))}});G.forEach(["post","put","patch"],function(a){function i(s){return function(c,d,m){return this.request(Al(m||{},{method:a,headers:s?{"Content-Type":"multipart/form-data"}:{},url:c,data:d}))}}Tl.prototype[a]=i(),Tl.prototype[a+"Form"]=i(!0)});let ix=class Lv{constructor(a){if(typeof a!="function")throw new TypeError("executor must be a function.");let i;this.promise=new Promise(function(c){i=c});const s=this;this.promise.then(o=>{if(!s._listeners)return;let c=s._listeners.length;for(;c-- >0;)s._listeners[c](o);s._listeners=null}),this.promise.then=o=>{let c;const d=new Promise(m=>{s.subscribe(m),c=m}).then(o);return d.cancel=function(){s.unsubscribe(c)},d},a(function(c,d,m){s.reason||(s.reason=new Ra(c,d,m),i(s.reason))})}throwIfRequested(){if(this.reason)throw this.reason}subscribe(a){if(this.reason){a(this.reason);return}this._listeners?this._listeners.push(a):this._listeners=[a]}unsubscribe(a){if(!this._listeners)return;const i=this._listeners.indexOf(a);i!==-1&&this._listeners.splice(i,1)}toAbortSignal(){const a=new AbortController,i=s=>{a.abort(s)};return this.subscribe(i),a.signal.unsubscribe=()=>this.unsubscribe(i),a.signal}static source(){let a;return{token:new Lv(function(o){a=o}),cancel:a}}};function rx(n){return function(i){return n.apply(null,i)}}function sx(n){return G.isObject(n)&&n.isAxiosError===!0}const Kc={Continue:100,SwitchingProtocols:101,Processing:102,EarlyHints:103,Ok:200,Created:201,Accepted:202,NonAuthoritativeInformation:203,NoContent:204,ResetContent:205,PartialContent:206,MultiStatus:207,AlreadyReported:208,ImUsed:226,MultipleChoices:300,MovedPermanently:301,Found:302,SeeOther:303,NotModified:304,UseProxy:305,Unused:306,TemporaryRedirect:307,PermanentRedirect:308,BadRequest:400,Unauthorized:401,PaymentRequired:402,Forbidden:403,NotFound:404,MethodNotAllowed:405,NotAcceptable:406,ProxyAuthenticationRequired:407,RequestTimeout:408,Conflict:409,Gone:410,LengthRequired:411,PreconditionFailed:412,PayloadTooLarge:413,UriTooLong:414,UnsupportedMediaType:415,RangeNotSatisfiable:416,ExpectationFailed:417,ImATeapot:418,MisdirectedRequest:421,UnprocessableEntity:422,Locked:423,FailedDependency:424,TooEarly:425,UpgradeRequired:426,PreconditionRequired:428,TooManyRequests:429,RequestHeaderFieldsTooLarge:431,UnavailableForLegalReasons:451,InternalServerError:500,NotImplemented:501,BadGateway:502,ServiceUnavailable:503,GatewayTimeout:504,HttpVersionNotSupported:505,VariantAlsoNegotiates:506,InsufficientStorage:507,LoopDetected:508,NotExtended:510,NetworkAuthenticationRequired:511};Object.entries(Kc).forEach(([n,a])=>{Kc[a]=n});function Uv(n){const a=new Tl(n),i=fv(Tl.prototype.request,a);return G.extend(i,Tl.prototype,a,{allOwnKeys:!0}),G.extend(i,a,null,{allOwnKeys:!0}),i.create=function(o){return Uv(Al(n,o))},i}const Qe=Uv(Xi);Qe.Axios=Tl;Qe.CanceledError=Ra;Qe.CancelToken=ix;Qe.isCancel=Ov;Qe.VERSION=Nv;Qe.toFormData=Qs;Qe.AxiosError=fe;Qe.Cancel=Qe.CanceledError;Qe.all=function(a){return Promise.all(a)};Qe.spread=rx;Qe.isAxiosError=sx;Qe.mergeConfig=Al;Qe.AxiosHeaders=St;Qe.formToJSON=n=>Av(G.isHTMLForm(n)?new FormData(n):n);Qe.getAdapter=Dv.getAdapter;Qe.HttpStatusCode=Kc;Qe.default=Qe;const{Axios:Yx,AxiosError:Vx,CanceledError:Xx,isCancel:Qx,CancelToken:Zx,VERSION:kx,all:Px,Cancel:$x,isAxiosError:Kx,spread:Jx,toFormData:Fx,AxiosHeaders:Ix,HttpStatusCode:Wx,formToJSON:eA,getAdapter:tA,mergeConfig:nA}=Qe,On=Qe.create({baseURL:"https://api.themoviedb.org/3/",params:{api_key:"15dba7d5e28591aa65be676f14361cc0",language:"pt-BR",page:1}});async function ux(){const{data:{results:n}}=await On.get("/movie/popular");return n[10]}async function ox(){const{data:{results:n}}=await On.get("/movie/top_rated");return n}async function cx(){const{data:{results:n}}=await On.get("/tv/top_rated");return n}async function fx(){const{data:{results:n}}=await On.get("/tv/popular");return n}async function dx(){const{data:{results:n}}=await On.get("/person/popular");return n}async function Bv(n){const{data:{results:a}}=await On.get(`/movie/${n}/videos`);return a}async function px(n){const{data:{cast:a}}=await On.get(`/movie/${n}/credits`);return a}async function hx(n){const{data:{results:a}}=await On.get(`/movie/${n}/similar`);return a}async function mx(n){const{data:a}=await On.get(`/movie/${n}`);return a}function gx({movieId:n,setShowModal:a}){const[i,s]=U.useState();return U.useEffect(()=>{async function o(){s(await Bv(n))}o()},[]),P.jsx(_w,{onClick:()=>a(!1),children:i&&P.jsx(zw,{children:P.jsx("iframe",{src:`https://youtube.com/embed/${i[0].key}`,title:"Youtube Video Player",height:"500px",width:"100%"})})})}function vx(){const[n,a]=U.useState(!1),[i,s]=U.useState(),[o,c]=U.useState(),[d,m]=U.useState(),[h,p]=U.useState(),[v,S]=U.useState(),b=hg();return U.useEffect(()=>{async function T(){Promise.all([ux(),ox(),cx(),fx(),dx()]).then(([E,R,C,x,_])=>{s(E),c(R),m(C),p(x),S(_)}).catch(E=>console.log(E))}T()},[]),P.jsxs(P.Fragment,{children:[i&&P.jsxs(Zb,{img:Ta(i.backdrop_path),children:[n&&P.jsx(gx,{movieId:i.id,setShowModal:a}),P.jsxs(kb,{children:[P.jsxs(Pb,{children:[P.jsx("h1",{children:i.title}),P.jsx("p",{children:i.overview}),P.jsxs(Kb,{children:[P.jsx(Bm,{red:!0,onClick:()=>b(`/detalhe/${i.id}`),children:"Assista Agora"}),P.jsx(Bm,{onClick:()=>a(!0),children:"Assista o Trailer"})]})]}),P.jsx($b,{children:P.jsx("img",{alt:"capa-do-filme",src:Ta(i.poster_path)})})]})]}),o&&P.jsx(zi,{info:o,title:"Top Filmes"}),d&&P.jsx(zi,{info:d,title:"Top Séries"}),h&&P.jsx(zi,{info:h,title:"Séries Mais Populares"}),v&&P.jsx(zi,{info:v,title:"Artistas Mais Populares"})]})}function yx(){return P.jsxs("div",{children:[P.jsx("h1",{children:"Filmes"}),P.jsx("p",{children:"Essa é a filmes"})]})}function Sx(){return P.jsxs("div",{children:[P.jsx("h1",{children:"Series"}),P.jsx("p",{children:"Essa é a series"})]})}const bx=je.div`
-  min-height: 100px;
+  min-height: 90px;
   z-index: 99;
   position: fixed;
   top: 0;
@@ -231,7 +236,7 @@ iframe {
   transition: background-color 0.6s ease-in-out;
 
   img {
-    width: 25%;
+    width: 30%;
   }
 `,Ex=je.ul`
   display: flex;
@@ -240,7 +245,7 @@ iframe {
 `,Mc=je.li`
   font-weight: 600;
   cursor: pointer;
-  font-size: 28px;
+  font-size: 1.5rem;
   position: relative;
 
   a {
@@ -252,7 +257,7 @@ iframe {
     content: "";
     height: 3px;
     width: ${n=>n.isActive?"100%":0};
-    background-color: #189b20;
+    background-color: #FF3131;
     position: absolute;
     bottom: -10px;
     left: 50%;
@@ -263,7 +268,7 @@ iframe {
   &:hover::after {
     width: 100%;
   }
-`,wx="/DevMovies/assets/logo-DSN4WPk8.png";function Tx(){const[n,a]=U.useState(!1),{pathname:i}=el();return window.onscroll=()=>{!n&&window.pageYOffset>150&&a(!0),n&&window.pageYOffset<=150&&a(!1)},P.jsxs(bx,{changeBackground:n,children:[P.jsx("img",{src:wx}),P.jsxs(Ex,{children:[P.jsx(Mc,{isActive:i=="/",children:P.jsx(Di,{to:"/",children:"Home"})}),P.jsx(Mc,{isActive:i.includes("filmes"),children:P.jsx(Di,{to:"/filmes",children:"Filmes"})}),P.jsx(Mc,{isActive:i.includes("series"),children:P.jsx(Di,{to:"/series",children:"Séries"})})]})]})}function xx(){return P.jsxs(P.Fragment,{children:[P.jsx(Tx,{}),P.jsx(u1,{})]})}const Ax=Pg`
+`,wx="/DevMovies/assets/logo-BEAD52O6.png";function Tx(){const[n,a]=U.useState(!1),{pathname:i}=el();return window.onscroll=()=>{!n&&window.pageYOffset>150&&a(!0),n&&window.pageYOffset<=150&&a(!1)},P.jsxs(bx,{changeBackground:n,children:[P.jsx("img",{src:wx}),P.jsxs(Ex,{children:[P.jsx(Mc,{isActive:i=="/",children:P.jsx(Di,{to:"/",children:"Home"})}),P.jsx(Mc,{isActive:i.includes("filmes"),children:P.jsx(Di,{to:"/filmes",children:"Filmes"})}),P.jsx(Mc,{isActive:i.includes("series"),children:P.jsx(Di,{to:"/series",children:"Séries"})})]})]})}function xx(){return P.jsxs(P.Fragment,{children:[P.jsx(Tx,{}),P.jsx(u1,{})]})}const Ax=Pg`
     from {
         transform: scale(0)
     }
@@ -276,6 +281,7 @@ iframe {
     height: 50vh;
     background-position: center;
     background-size: cover;
+    background-position-y: -15vh;
     background-repeat: no-repeat;
     position: relative;
 
@@ -305,16 +311,17 @@ iframe {
     height: 100%;
     max-width: 1500px;
     margin-top: -100px;
+    overflow-x: hidden;
 
 `,Cx=je.div`
     padding: 20px;
     display: flex;
     align-items: flex-start;
     height: 100%;
-    z-index: 99;
+    z-index: 90;
 
     img{
-        width: 450px;
+        max-width: 400px;
         border-radius: 30px;
         box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
         animation: ${Ax} 0.5s linear;
@@ -322,13 +329,13 @@ iframe {
 `,Mx=je.div`
     padding: 20px;
     width: 50%;
-    z-index: 99;
+    z-index: 90;
     display: flex;
     align-items: flex-start;
     flex-direction: column;
 
     h2 {
-        font-size: 50px;
+        font-size: 3rem;
         font-weight: 700;
         color: #ffffff;
     }
@@ -404,7 +411,7 @@ iframe {
   }
 
   img {
-    height: 200px;
+    height: 175px;
     border-radius: 20px;
   }
 `;function Ux({credits:n}){return P.jsxs(P.Fragment,{children:[P.jsx(Nx,{children:"Créditos"}),n&&P.jsxs(Lx,{children:[n.slice(0,5).map(a=>P.jsxs("div",{children:[P.jsx("img",{src:Ta(a.profile_path)}),P.jsx("p",{children:a.original_name})]},a.id)),P.jsx("div",{})]})]})}function Bx(){const{id:n}=$S(),[a,i]=U.useState(),[s,o]=U.useState(),[c,d]=U.useState(),[m,h]=U.useState();return U.useEffect(()=>{async function p(){Promise.all([mx(n),Bv(n),px(n),hx(n)]).then(([v,S,b,T])=>{console.log({movie:v,videos:S,credits:b,similar:T}),i(v),o(S),d(b),h(T)}).catch(v=>console.log(v))}p()},[]),P.jsx(P.Fragment,{children:a&&P.jsxs(P.Fragment,{children:[P.jsx(Ox,{image:Ta(a.backdrop_path)}),P.jsxs(Rx,{children:[P.jsx(Cx,{children:P.jsx("img",{src:Ta(a.poster_path)})}),P.jsxs(Mx,{children:[P.jsx("h2",{children:a.title}),P.jsx(Dx,{genres:a.genres}),P.jsx("p",{children:a.overview}),P.jsx("div",{children:P.jsx(Ux,{credits:c})})]})]}),P.jsx(_x,{children:s&&s.map(p=>P.jsxs("div",{children:[P.jsx("h4",{children:p.name}),P.jsx("iframe",{src:`https://youtube.com/embed/${p.key}`,title:"Youtube Video Player",height:"500px",width:"100%"})]},p.id))}),m&&P.jsx(zi,{info:m,title:"Filmes Similares"})]})})}function Hx(){return P.jsx(c1,{children:P.jsxs(ha,{element:P.jsx(xx,{}),children:[P.jsx(ha,{path:"/",element:P.jsx(vx,{})}),P.jsx(ha,{path:"/filmes",element:P.jsx(yx,{})}),P.jsx(ha,{path:"/series",element:P.jsx(Sx,{})}),P.jsx(ha,{path:"/detalhe/:id",element:P.jsx(Bx,{})})]})})}const jx=Xb` 
